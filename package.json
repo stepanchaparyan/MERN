@@ -1,0 +1,34 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "mongo, express, react, node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stepanchaparyan/MERN.git"
+  },
+  "keywords": [
+    "mongo",
+    "express",
+    "react",
+    "node"
+  ],
+  "author": "Stepan Chaparyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stepanchaparyan/MERN/issues"
+  },
+  "homepage": "https://github.com/stepanchaparyan/MERN#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}
