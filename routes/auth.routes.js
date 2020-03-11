@@ -49,7 +49,7 @@ router.post(
   ],
   async (req, res) => {
     try {
-      const errors = validatorResult(req);
+      const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
@@ -70,6 +70,7 @@ router.post(
         expiresIn: '1h'
       });
       res.json({ token, userId: user.id });
+
     } catch (e) {
       res.status(500).json({ message: 'Error from server 500, try again' });
     }
