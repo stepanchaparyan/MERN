@@ -1,5 +1,6 @@
 {
     "port": 5000,
     "jwtSecret": "myJwtSecret",
-    "mongoUri": "mongodb+srv://User1:User1@cluster0-k5cj7.mongodb.net/authDB?retryWrites=true&w=majority"
+    "mongoUri": "mongodb+srv://User1:User1@cluster0-k5cj7.mongodb.net/authDB?retryWrites=true&w=majority",
+    "baseUrl": "http://localhost:5000"
 }
