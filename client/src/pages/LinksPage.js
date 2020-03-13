@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
+import { useHttp } from '../hooks/http.hook.js';
+import { AuthContext } from '../context/AuthContext.js';
+import { LinksList } from '../components/LinksList';
+import { Loader } from '../components/Loader';
 
 export const LinksPage = () => {
-  return (
-    <div>
-      <h1>LinksPage</h1>
-    </div>
-  );
-}
+  const [links, setLinks] = useState([]);
+  const { loading, request } = useHttp();
+  const { token } = useContext(AuthContext);
+
+  const fetchLinks = useCallback(async () => {
+    try {
+      const fetched = await request('/api/link', 'GET', null, {
+        Authorization: `Bearer ${token}`
+      });
+      setLinks(fetched);
+    } catch (e) {}
+  }, [token, request]);
+
+  useEffect(() => {
+    fetchLinks();
+  }, [fetchLinks]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return <>{!loading && <LinksList links={links} />}</>;
+};
 
 export default LinksPage;
